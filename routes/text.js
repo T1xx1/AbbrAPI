@@ -2,9 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const Json = require('../snippets/json');
-
-const words = new Json(`${process.cwd()}/data/words.json`, '').value;
+const words = require('../data/words');
 
 router.get('/', (req, res) => {
    let abbr = req.body.abbr.toLowerCase();
