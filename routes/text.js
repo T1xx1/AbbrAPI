@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
    if (abbr === ' undefined ') res.status('400').send('abbr param required');
 
-   for (let word in words) abbr = abbr.replaceAll(` ${words[word]} `, word);
+   for (let word in words) abbr = abbr.replaceAll(new RegExp(`\\b${words[word]}\\b`, 'g'), word);
 
    res.send(abbr);
 });
