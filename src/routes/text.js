@@ -5,9 +5,15 @@ const router = express.Router();
 const words = require('../data/words');
 
 router.get('/', (req, res) => {
-   let abbr = ` ${req.body.abbr} `;
+   try {
+      if (abbr === ' undefined ') throw 'abbr param required';
+   } catch (m) {
+      res.status(400).send(m);
 
-   if (abbr === ' undefined ') res.status('400').send('abbr param required');
+      return;
+   }
+
+   let abbr = ` ${req.body.abbr} `;
 
    for (let word in words) abbr = abbr.replaceAll(new RegExp(`\\b${words[word]}\\b`, 'g'), word);
 

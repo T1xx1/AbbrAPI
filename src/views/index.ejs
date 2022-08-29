@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>AbbrAPI</title>
+   <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+   <header>
+      <h1>
+         <abbr title="Abbreviations API">AbbrAPI</abbr>
+      </h1>
+      <p>Translate english text in abbreviations and viceversa</p>
+   </header>
+   <div>
+      <h2>/abbr</h2>
+      <div>Translate english to abbreviations</div>
+      <pre>
+         fetch('<a href="https://t1xx1.github.io/AbbrAPI/abbr">https://t1xx1.github.io/AbbrAPI/abbr</a>', {
+            body: {
+               text: "i am"
+            }
+         });
+      </pre>
+      <span>response</span>
+      <pre>
+         i'm
+      </pre>
+   </div>
+   <div>
+      <h2>/text</h2>
+      <div>Translate back abbreviations to english</div>
+      <pre>
+         fetch('<a href="https://t1xx1.github.io/AbbrAPI/text">https://t1xx1.github.io/AbbrAPI/text</a>', {
+            body: {
+               abbr: "i'm"
+            }
+         });
+      </pre>
+      <span>response</span>
+      <pre>
+         i am
+      </pre>
+   </div>
+   <div>
+      <h2>/all</h2>
+      <div>Return all the aviable abbreviations</div>
+      <pre>
+         fetch('<a href="https://t1xx1.github.io/AbbrAPI/all">https://t1xx1.github.io/AbbrAPI/all</a>');
+      </pre>
+      <span>response</span>
+      <pre>
+         {
+            "i am": "i'm"
+         }
+      </pre>
+   </div>
+   <span>Build by <a href="https://github.com/T1xx1">T1xx1</a></span>
+</body>
+
+</html>
