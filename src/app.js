@@ -1,23 +1,19 @@
 require('dotenv').config();
 
-const { normalize } = require('path');
-
 const express = require('express');
 
 const app = express();
 
+// Website
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
+app.use(express.static(`${__dirname}/../public`));
 
+// JSON requests
 app.use(express.json());
-app.use(express.static(normalize(`${__dirname}/../public`)));
 
-app.get('/', (req, res) => {
-   res.render('index');
-});
+app.get('/', (req, res) => res.render('index'));
 
-app.use('/abbr', require('./routes/abbr'));
-app.use('/all', require('./routes/all'));
-app.use('/text', require('./routes/text'));
+app.use('/v2', require('./routes/v2'));
 
-app.listen(process.env.PORT || 8000, () => console.log("Server's running..."));
+app.listen(process.env.PORT || 1000, () => console.log("Server's running..."));

@@ -1,24 +1,23 @@
 {
    "name": "abbrapi",
    "version": "1.0.0",
-   "main": "index.js",
-   "description": "",
    "scripts": {
-      "start": "nodemon src/app.js",
+      "dev": "nodemon ./src/app.js",
       "format": "prettier --write \"**/*.+(js|json|css|md)\"",
-      "deploy": "gh-pages -d ."
+      "order": "node ./dev/order.js",
+      "purgecss": "purgecss --css ./public/style.css --content ./src/views/index.ejs --output ./public/style.css",
+      "start": "node ./src/app.js",
+      "commit": "npm run order && npm run purgecss && npm run format"
    },
-   "author": "",
    "license": "ISC",
    "dependencies": {
       "dotenv": "^16.0.1",
       "ejs": "^3.1.8",
-      "express": "^4.18.1",
-      "nodemon": "^2.0.19",
-      "sass": "^1.54.5"
+      "express": "^4.18.1"
    },
    "devDependencies": {
-      "gh-pages": "^4.0.0",
-      "prettier": "^2.7.1"
+      "nodemon": "^2.0.19",
+      "prettier": "^2.7.1",
+      "purgecss": "^4.1.3"
    }
 }
