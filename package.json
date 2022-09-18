@@ -3,21 +3,16 @@
    "version": "1.0.0",
    "scripts": {
       "dev": "nodemon ./src/app.js",
-      "format": "prettier --write \"**/*.+(js|json|css|md)\"",
       "order": "node ./dev/order.js",
-      "purgecss": "purgecss --css ./public/style.css --content ./src/views/index.ejs --output ./public/style.css",
-      "start": "node ./src/app.js",
-      "commit": "npm run order && npm run purgecss && npm run format"
+      "start": "node ./src/app.js"
    },
-   "license": "ISC",
    "dependencies": {
+      "cors": "^2.8.5",
       "dotenv": "^16.0.1",
       "ejs": "^3.1.8",
       "express": "^4.18.1"
    },
    "devDependencies": {
-      "nodemon": "^2.0.19",
-      "prettier": "^2.7.1",
-      "purgecss": "^4.1.3"
+      "nodemon": "^2.0.19"
    }
 }
